@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="emailService" class="org.example.comm.EmailService"/>
+    <bean id="smsService" class="org.example.comm.SmsService"/>
+
+    <bean id="orderProcess" class="org.example.orders.OrderService">
+        <constructor-arg name="messageService" ref="smsService"/>
+        <!-- setter-based dependency injection -->
+        <!-- property name="messageService" ref="smsService"/ -->
+    </bean>
+
+</beans>
